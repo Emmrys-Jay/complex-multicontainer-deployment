@@ -12,9 +12,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout files and performed react test
-      - uses: actions/checkout@v2
-      - run: docker build -t emmrysjay/react-test -f ./client/Dockerfile ././client/Dockerfile
+      # - name: Checkout files and performed react test
+      # - uses: actions/checkout@v2
+      # - run: docker build -t emmrysjay/react-test -f ./client/Dockerfile ././client/Dockerfile
       # - run: docker run -e CI=true emmrysjay/react-test npm test
     
       # - name: Generate production docker files
