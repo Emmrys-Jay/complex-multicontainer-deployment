@@ -29,8 +29,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       
-      - name: Push Docker images
-      - run: docker push -t emmrysjay/multi_server
-      - run: docker push -t emmrysjay/multi_worker
-      - run: docker push -t emmrysjay/multi_nginx
-      - run: docker push -t emmrysjay/multi_client
+      # - name: Push Docker images
+      # - run: docker push -t emmrysjay/multi_server
+      # - run: docker push -t emmrysjay/multi_worker
+      # - run: docker push -t emmrysjay/multi_nginx
+      # - run: docker push -t emmrysjay/multi_client
