@@ -17,11 +17,11 @@ jobs:
       - run: docker build -t emmrysjay/react-test -f ./client/Dockerfile ././client/Dockerfile
       - run: docker run -e CI=true emmrysjay/react-test npm test
     
-      - name: Generate production docker files
-      - run: docker build -t emmrysjay/multi_server ./server
-      - run: docker build -t emmrysjay/multi_worker ./worker
-      - run: docker build -t emmrysjay/multi_nginx ./nginx
-      - run: docker build -t emmrysjay/multi_client ./client
+      # - name: Generate production docker files
+      # - run: docker build -t emmrysjay/multi_server ./server
+      # - run: docker build -t emmrysjay/multi_worker ./worker
+      # - run: docker build -t emmrysjay/multi_nginx ./nginx
+      # - run: docker build -t emmrysjay/multi_client ./client
 
       - name: Log in to Docker Hub
       - uses: docker/login-action@v2
