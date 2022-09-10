@@ -15,7 +15,7 @@ jobs:
       - name: Checkout files and performed react test
       - uses: actions/checkout@v2
       - run: docker build -t emmrysjay/react-test -f ./client/Dockerfile ././client/Dockerfile
-      - run: docker run -e CI=true emmrysjay/react-test npm test
+      # - run: docker run -e CI=true emmrysjay/react-test npm test
     
       # - name: Generate production docker files
       # - run: docker build -t emmrysjay/multi_server ./server
