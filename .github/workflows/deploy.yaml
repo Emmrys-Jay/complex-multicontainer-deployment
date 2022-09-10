@@ -17,7 +17,7 @@ jobs:
 
       - name: Test react
         run: |
-          docker build -t emmrysjay/react-test -f ./client/Dockerfile ./client
+          docker build -t emmrysjay/react-test -f ./client/Dockerfile.dev ./client
           docker run -e CI=true emmrysjay/react-test npm test
     
       - name: Generate production docker files
