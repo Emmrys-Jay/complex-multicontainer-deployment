@@ -35,7 +35,7 @@ jobs:
       
       - name: Push Docker images
         run: |
-          docker push -t emmrysjay/multi_server
-          docker push -t emmrysjay/multi_worker
-          docker push -t emmrysjay/multi_nginx
-          docker push -t emmrysjay/multi_client
+          docker push emmrysjay/multi_server
+          docker push emmrysjay/multi_worker
+          docker push emmrysjay/multi_nginx
+          docker push emmrysjay/multi_client
