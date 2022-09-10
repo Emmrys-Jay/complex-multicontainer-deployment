@@ -2,35 +2,38 @@ name: Deploy Multi-Container Project
 on: 
   push:
     branches:
-      - 'main'
+      - "main"
   pull_request:
     branches: 
-      - 'main'
+      - "main"
   workflow_dispatch:
     
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout files and performed react test
-      # - uses: actions/checkout@v2
-      # - run: docker build -t emmrysjay/react-test -f ./client/Dockerfile ././client/Dockerfile
-      # - run: docker run -e CI=true emmrysjay/react-test npm test
+      - name: Checkout files and performed react test
+        uses: actions/checkout@v2
+        run: |
+          docker build -t emmrysjay/react-test -f ./client/Dockerfile ././client/Dockerfile
+          docker run -e CI=true emmrysjay/react-test npm test
     
-      # - name: Generate production docker files
-      # - run: docker build -t emmrysjay/multi_server ./server
-      # - run: docker build -t emmrysjay/multi_worker ./worker
-      # - run: docker build -t emmrysjay/multi_nginx ./nginx
-      # - run: docker build -t emmrysjay/multi_client ./client
+      - name: Generate production docker files
+        run: |
+          docker build -t emmrysjay/multi_server ./server
+          docker build -t emmrysjay/multi_worker ./worker
+          docker build -t emmrysjay/multi_nginx ./nginx
+          docker build -t emmrysjay/multi_client ./client
 
       - name: Log in to Docker Hub
-      - uses: docker/login-action@v2
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       
-      # - name: Push Docker images
-      # - run: docker push -t emmrysjay/multi_server
-      # - run: docker push -t emmrysjay/multi_worker
-      # - run: docker push -t emmrysjay/multi_nginx
-      # - run: docker push -t emmrysjay/multi_client
+      - name: Push Docker images
+        run: |
+          docker push -t emmrysjay/multi_server
+          docker push -t emmrysjay/multi_worker
+          docker push -t emmrysjay/multi_nginx
+          docker push -t emmrysjay/multi_client
